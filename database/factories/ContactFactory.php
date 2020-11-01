@@ -24,7 +24,7 @@ class ContactFactory extends Factory
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName,
-            'date_of_birth' => $this->faker->date('1955-01-01'),
+            'date_of_birth' => $this->faker->dateTimeBetween($startDate = '-60 years', $endDate = '-18 years'),
             'company_name' => $this->faker->company,
             'position' => $this->faker->jobTitle,
             'email' => $this->faker->unique()->safeEmail,

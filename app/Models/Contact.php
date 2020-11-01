@@ -9,6 +9,10 @@ class Contact extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'date_of_birth ' => 'datetime:d-m-Y',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
