@@ -33,7 +33,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('contacts.store')}}" method="POST">
+            <form action="{{ route('contacts.store') }}" method="POST">
                 @csrf
 
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8">
@@ -130,9 +130,9 @@
                                 </a>
                             </span>
                             <span class="ml-3 inline-flex rounded-md shadow-sm">
-                                <a type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out">
+                                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out">
                                     Create
-                                </a>
+                                </button>
                             </span>
                         </div>
                     </div>

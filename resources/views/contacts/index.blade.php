@@ -46,22 +46,25 @@
 
             <div class="flex justify-between">
                 <div class="mb-8 w-1/3">
-                    <label for="contacts" class="block text-sm font-medium leading-5 text-gray-700">Search Contacts</label>
-                    <div class="mt-1 flex rounded-md shadow-sm">
-                        <div class="relative flex items-stretch flex-grow focus-within:z-10">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <!-- Heroicon name: users -->
-                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                                </svg>
+                    <form action="{{ route('contacts.index')}}" method="GET">
+                        <label for="contacts" class="block text-sm font-medium leading-5 text-gray-700">Search Contacts</label>
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                            <div class="relative flex items-stretch flex-grow focus-within:z-10">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <!-- Heroicon name: users -->
+                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                                    </svg>
+                                </div>
+                                <input id="contacts" class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5" placeholder="John Doe" value="{{ request()->input('term') }}" name="term">
                             </div>
-                            <input id="contacts" class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5" placeholder="John Doe">
+                            <button type="submit" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                                <span>Search</span>
+                            </button>
                         </div>
-                        <button class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                            <span>Search</span>
-                        </button>
-                    </div>
+                    </form>
                 </div>
+
                 <div class="ml-auto mt-4">
                     <span class="inline-flex rounded-md shadow-sm">
                         <a href="{{ route('contacts.create')}}" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150">
@@ -131,18 +134,9 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        @else
-                                            <tr>
-                                                <td colspan="5" class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900 text-center">
-                                                    No contacts exist or match!
-                                                </td>
-                                            </tr>
                                         @endif
                                     </tbody>
                                 </table>
-
-
-
                             </div>
                         </div>
                     </div>

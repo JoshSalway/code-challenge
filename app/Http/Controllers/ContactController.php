@@ -14,7 +14,16 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
-        $contacts = Contact::paginate(5);
+        $contacts = Contact::query();
+        if (request('term')) {
+            $contacts->where('first_name', 'LIKE', '%' . request('term') . '%')
+                ->orWhere('last_name', 'LIKE', '%' . request('term') . '%')
+                ->orWhere('email', 'LIKE', '%' . request('term') . '%')
+                ->orWhere('company_name', 'LIKE', '%' . request('term') . '%')
+                ->get();
+        };
+
+        $contacts = $contacts->paginate(5);
 
         return view('contacts.index', compact('contacts'));
     }
